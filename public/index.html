@@ -3,11 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Automata Parser</title>
+    <title>Teorema de Arden</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- SweetAlert2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom styles for SweetAlert2 */
+      .swal2-popup {
+        background-color: #007bff !important; /* Fondo de la alerta */
+        color: #fff !important; /* Color del texto */
+      }
+      .swal2-title {
+        color: #fff !important; /* Color del título */
+      }
+      .swal2-confirm {
+        background-color: #007bff !important; /* Color del botón de confirmación */
+        color: #fff !important; /* Color del texto del botón */
+      }
+    </style>
   </head>
-  <body>
-    <input type="file" id="fileInput" />
-    <pre id="output"></pre>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Teorema de Arden</h1>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="fileInput" class="btn btn-primary btn-block">
+              Busquemos el archivo
+              <input
+                type="file"
+                id="fileInput"
+                class="form-control-file"
+                hidden
+              />
+            </label>
+          </div>
+          <pre id="output" class="p-3 bg-white border rounded"></pre>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <script src="bundle.js"></script>
+    <script>
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function () {
+          // Mostrar SweetAlert2 después de que se cargue un archivo
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Archivo encontrado",
+            showConfirmButton: false,
+            timer: 1500,
+            customClass: {
+              popup: "swal2-popup",
+              title: "swal2-title",
+              confirmButton: "swal2-confirm",
+            },
+          });
+        });
+    </script>
   </body>
 </html>

@@ -1,5 +1,5 @@
-import { Formatter } from "./formatter.js";
-import { k } from "./states.js";
+import { Formatter } from "./tokens.js";
+import { k } from "./estados.js";
 
 export const DFA = [];
 

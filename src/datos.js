@@ -1,8 +1,8 @@
-import { AlphabetA, a } from "./alphabet.js";
-import { StatesS, states, k } from "./states.js";
-import { ValidValid, valid } from "./valid.js";
+import { AlphabetA, a } from "./alfabeto.js";
+import { StatesS, states, k } from "./estados.js";
+import { ValidValid, valid } from "./estadosValidos.js";
 import { Cleaner, MakeNet, DFA, Mapping } from "./dfa.js";
-import { All, solved } from "./solver.js";
+import { All, solved } from "./resolucion.js";
 
 export function DataFiles(fileContent, outputElement) {
   const lines = fileContent.split("\n").map((line) => line.trim());
@@ -12,7 +12,7 @@ export function DataFiles(fileContent, outputElement) {
     if (l === 1) {
       AlphabetA(cline);
       outputElement.innerHTML +=
-        "Alfabeto: " + Array.from(a).join(" ") + "<br>";
+        "Caracteres para las transiciones: " + Array.from(a).join(" ") + "<br>";
     } else if (l === 2) {
       StatesS(cline);
       outputElement.innerHTML +=
@@ -20,7 +20,7 @@ export function DataFiles(fileContent, outputElement) {
     } else if (l === 3) {
       ValidValid(cline);
       outputElement.innerHTML +=
-        "Estados válidos: " + Array.from(valid).join(" ") + "<br>";
+        "Estados Finales: " + Array.from(valid).join(" ") + "<br>";
     } else {
       let clean = Cleaner(cline);
       let current = MakeNet(clean);
@@ -39,6 +39,6 @@ export function DataFiles(fileContent, outputElement) {
 
   solved.add(k);
   All(DFA[0], 0, outputElement);
-  outputElement.innerHTML += "Expresión Regular:<br>";
+  outputElement.innerHTML += "La expresion final es:<br>";
   Mapping(DFA[0], 0, outputElement);
 }

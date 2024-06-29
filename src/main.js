@@ -1,4 +1,4 @@
-import { DataFiles } from "./dataFiles.js";
+import { DataFiles } from "./datos.js";
 
 document.getElementById("fileInput").addEventListener("change", (event) => {
   const file = event.target.files[0];

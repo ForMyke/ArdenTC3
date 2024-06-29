@@ -1,4 +1,4 @@
-import { Formatter } from "./formatter.js";
+import { Formatter } from "./tokens.js";
 
 export const a = new Set();
 

@@ -1,5 +1,5 @@
-import { k } from "./states.js";
-import { valid } from "./valid.js";
+import { k } from "./estados.js";
+import { valid } from "./estadosValidos.js";
 import { DFA, Mapping, PlusExpression } from "./dfa.js";
 
 export const solved = new Set();

@@ -18,6 +18,7 @@ export function Arden(id, outputElement) {
     }
   }
   DFA[id] = node;
+  outputElement.innerHTML += `Ecuación para X${id} después de aplicar Arden:<br>`;
   Mapping(DFA[id], id, outputElement);
 }
 
@@ -29,7 +30,7 @@ export function IfPath(node) {
   return path.has(node);
 }
 
-export function MixMaps(target, source) {
+export function MixMaps(target, source, outputElement) {
   let aux = DFA[target];
   let src = DFA[source];
   let obj = aux.get(source);
@@ -53,6 +54,8 @@ export function MixMaps(target, source) {
     }
   }
   DFA[target] = aux;
+  outputElement.innerHTML += `Ecuación para X${target} despues de añadir  X${source}:<br>`;
+  Mapping(DFA[target], target, outputElement);
 }
 
 export function All(node, start, outputElement) {
@@ -60,7 +63,7 @@ export function All(node, start, outputElement) {
   for (let key of Array.from(node.keys())) {
     if (!IfSolved(key) && !IfPath(key)) {
       All(DFA[key], key, outputElement);
-      MixMaps(start, key);
+      MixMaps(start, key, outputElement);
     }
   }
   if (node.has(start)) {

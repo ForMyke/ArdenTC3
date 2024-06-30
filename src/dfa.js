@@ -33,7 +33,9 @@ export function MakeNet(connect) {
 
 export function Mapping(node, id, outputElement) {
   outputElement.innerHTML += `X${id}:<br>`;
+  console.log(`Mapping for X${id}:`);
   for (let [key, value] of node.entries()) {
     outputElement.innerHTML += `${key} => ${value}<br>`;
+    console.log(`${key} => ${value}`);
   }
 }
